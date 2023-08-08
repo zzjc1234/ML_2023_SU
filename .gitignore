@@ -1,0 +1,7 @@
+*
+!.gitignore
+!*.py
+!*.txt
+!*.md
+!*.tex
+!Lecture.pdf
