@@ -1,8 +1,11 @@
 *
 !.gitignore
+!.gitattributes
 !*.py
 !*.txt
 !*.md
 !*.tex
 !Lecture.pdf
 !*.ipynb
+!test.csv
+!train.csv
