@@ -2,6 +2,7 @@
 !.gitattributes
 !.gitignore
 !.gitattributes
+!skl_official
 !*.py
 !*.txt
 !*.md
