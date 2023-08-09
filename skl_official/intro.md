@@ -30,6 +30,10 @@ Machine learning problem is to generate a predicting model based on the data set
 
   If the data set doesn't contain the corresponding catalog each row corresponds to, we should use the unsupervised learning to establish the model. The principle of the unsupervised learning is to discover groups of similar examples within the data, where it is called clustering, or to determine the distribution of data within the input space, known as density estimation, or to project the data from a high-dimensional space down to two or three dimensions for the purpose of visualization.
 
+- Semi-Supervised learning
+
+  In addition, there are so-called semi-supervised learning methods, which falls somewhere between supervised learning and unsupervised learning.  Semi-supervised learning methods are often useful when only incomplete labels are available.
+
 ---
 
 ## Training Set and Testing Set
