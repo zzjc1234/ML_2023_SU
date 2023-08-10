@@ -1,7 +1,6 @@
 #Import Module
 from sklearn.tree import DecisionTreeRegressor as dt
 from sklearn.model_selection import train_test_split as tts
-from sklearn.metrics import mean_absolute_error as mae
 from sklearn.model_selection import KFold, cross_val_score
 import pandas as pd
 import numpy as np
