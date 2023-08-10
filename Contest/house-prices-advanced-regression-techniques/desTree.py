@@ -30,9 +30,10 @@ X=X[:, :-1]
 
 #Fit Model
 train_X, val_X, train_y, val_y = tts(X, Y, random_state=1)
-model=dt()
+model=dt(max_depth=10,max_leaf_nodes=10)
 k_fold = KFold(n_splits=5, shuffle=True, random_state=42)
 mae_scores = cross_val_score(model, X, Y, scoring='neg_mean_absolute_error', cv=k_fold)
+print(mae_scores)
 absolute_mae_scores = -mae_scores
 average_mae = absolute_mae_scores.mean()
 
