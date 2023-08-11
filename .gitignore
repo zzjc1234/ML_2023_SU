@@ -15,6 +15,8 @@
 
 #include directory
 !Contest
+!src
+!src/*
 !Contest/house-prices-advanced-regression-techniques
 !skl_official
 !models&workflow
