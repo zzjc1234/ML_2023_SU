@@ -2,6 +2,9 @@
 !.gitattributes
 !.gitignore
 !.gitattributes
+!skl_official
+!Contest
+!Contest/house-prices-advanced-regression-techniques
 !*.py
 !*.txt
 !*.md
@@ -10,3 +13,4 @@
 !*.ipynb
 !test.csv
 !train.csv
+!Training
