@@ -15,15 +15,7 @@
 
 #include directory
 !Contest
-!skl_official
 !Contest/house-prices-advanced-regression-techniques
+!skl_official
 !models&workflow
-!models&workflow/basic
-!models&workflow/basic
-!models&workflow/data_process
-!models&workflow/fitModel
-!models&workflow/fitModel/regression
-!models&workflow/fitModel/supervised
-!models&workflow/fitModel/unsuperivsed
-!models&workflow/optimize
-!models&workflow/validation
+!models&workflow/**/
