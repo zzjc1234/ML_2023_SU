@@ -7,8 +7,9 @@ This repo includes info of machine learning in 2023 Summer vacation. The source 
 ## Menu
 
 1. Before start
-2. Traditional (mainly Sklearn)
-3. Neuron Network (mainly pytorch)
+2. File tree
+3. Traditional (mainly Sklearn)
+4. Neuron Network (mainly pytorch)
 
 ---
 
@@ -19,6 +20,26 @@ This repo includes info of machine learning in 2023 Summer vacation. The source 
 3. Please take care when writing the commit message.
 
 ---
+
+## File tree
+
+The file tree of this repo looks like that.
+
+```bash
+.
+├── Contest
+│   └── house-prices-advanced-regression-techniques
+├── models&workflow
+│   ├── basic
+│   ├── data_process
+│   ├── fitModel
+│   │   ├── regression
+│   │   ├── supervised
+│   │   └── unsuperivsed
+│   ├── optimize
+│   └── validation
+└── skl_official
+```
 
 ## Traditional Machine Learning
 

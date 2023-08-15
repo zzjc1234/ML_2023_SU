@@ -1,10 +1,9 @@
 *
+#git
 !.gitattributes
 !.gitignore
-!.gitattributes
-!skl_official
-!Contest
-!Contest/house-prices-advanced-regression-techniques
+
+#Rule of files
 !*.py
 !*.txt
 !*.md
@@ -13,4 +12,12 @@
 !*.ipynb
 !test.csv
 !train.csv
-!Training
+
+#include directory
+!Contest
+!src
+!src/*
+!Contest/house-prices-advanced-regression-techniques
+!skl_official
+!models&workflow
+!models&workflow/**/
