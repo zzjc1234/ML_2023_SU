@@ -12,6 +12,7 @@
 !*.ipynb
 !test.csv
 !train.csv
+!Contest/house-prices-advanced-regression-techniques/train_marked.xlsx
 
 #include directory
 !Contest
