@@ -46,6 +46,7 @@ def import_data():
 
     return X,Y
 
+# INFO: Use the buildtInTest to analyze the feature
 def built_in_test(X,Y):
 # WARNING: Since the variance of dumb variable is really small, these features are removed
     f_scores, _ = featsel.f_regression(X, Y)
@@ -106,14 +107,46 @@ def built_in_test(X,Y):
 
     plt.show()
 
+# INFO: Use REF to select features
+def refSel(X,Y):
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.model_selection import StratifiedKFold
+
+    min_features_to_select = 1  # Minimum number of features to consider
+    clf = LogisticRegression()
+    cv = StratifiedKFold(5)
+
+    rfecv = featsel.RFECV(
+        estimator=clf,
+        step=1,
+        cv=cv,
+        scoring="accuracy",
+        min_features_to_select=min_features_to_select,
+        n_jobs=2,
+    )
+    rfecv.fit(X, Y)
+
+    print(f"Optimal number of features: {rfecv.n_features_}")
+
+    n_scores = len(rfecv.cv_results_["mean_test_score"])
+    plt.figure()
+    plt.xlabel("Number of features selected")
+    plt.ylabel("Mean test accuracy")
+    plt.plot(
+        range(min_features_to_select, n_scores + min_features_to_select),
+        rfecv.cv_results_["mean_test_score"],
+    )
+    plt.title("Recursive Feature Elimination \nwith correlated features")
+    plt.show()
+
 X, Y=import_data()
 
 # INFO: feature selection
 
 # TEST: Built-in test
 
-built_in_test(X,Y)
+#built_in_test(X,Y)
 
-# TEST: Recursive Feature Elimination
+# TEST: REF
 
-
+refSel(X,Y)
