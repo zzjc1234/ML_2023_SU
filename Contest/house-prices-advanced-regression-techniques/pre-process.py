@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import sklearn.feature_selection as featsel
+from sklearn.model_selection import KFold
 
 def remove_constant_features(data):
     constant_feature_indices = []  # 用于存储常量特征的列索引
@@ -27,8 +28,9 @@ def import_data():
 
 # INFO: process Na
     data[column_to_fill] = data[column_to_fill].fillna(fill_value)
-    data, _ =remove_constant_features(data)
-    data.dropna(inplace = True)
+    #data, _ =remove_constant_features(data)
+    data=data.dropna()
+    #data.to_csv("dropNa.csv", index=False)
 
 # INFO: display the Data
     print(data.describe())
@@ -38,6 +40,7 @@ def import_data():
     print(data.isnull().sum())
 
     train = pd.get_dummies(data)
+    train.to_csv("precessed.csv",index=False)
     Y = train["SalePrice"]
     X = train.drop('SalePrice', axis = 1)
 
@@ -109,24 +112,19 @@ def built_in_test(X,Y):
 
 # INFO: Use REF to select features
 def refSel(X,Y):
-    from sklearn.linear_model import LogisticRegression
-    from sklearn.model_selection import StratifiedKFold
+    from sklearn.ensemble import RandomForestRegressor as rf
 
     min_features_to_select = 1  # Minimum number of features to consider
-    clf = LogisticRegression()
-    cv = StratifiedKFold(5)
 
-    rfecv = featsel.RFECV(
-        estimator=clf,
-        step=1,
-        cv=cv,
-        scoring="accuracy",
-        min_features_to_select=min_features_to_select,
-        n_jobs=2,
-    )
+
+    rfecv = featsel.RFECV(estimator = rf(), step = 1, min_features_to_select = 1, cv = KFold(5), scoring = "r2")
+
     rfecv.fit(X, Y)
 
     print(f"Optimal number of features: {rfecv.n_features_}")
+    
+    selRet=rfecv.get_support(indices=True)
+    print(selRet)
 
     n_scores = len(rfecv.cv_results_["mean_test_score"])
     plt.figure()
@@ -149,4 +147,4 @@ X, Y=import_data()
 
 # TEST: REF
 
-refSel(X,Y)
+# refSel(X,Y)
